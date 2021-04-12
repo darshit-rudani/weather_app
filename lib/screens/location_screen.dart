@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:weather/utilities/constants.dart';
 
 class LocationScreen extends StatefulWidget {
   @override
@@ -34,6 +35,13 @@ class _LocationScreenState extends State<LocationScreen> {
                       size: 50.0,
                     ),
                   ),
+                  FlatButton(
+                    onPressed: () {},
+                    child: Icon(
+                      Icons.location_city,
+                      size: 50.0,
+                    ),
+                  ),
                 ],
               ),
               Padding(
@@ -45,7 +53,7 @@ class _LocationScreenState extends State<LocationScreen> {
                       style: kTempTextStyle,
                     ),
                     Text(
-                      '🌞',
+                      '☀️',
                       style: kConditionTextStyle,
                     ),
                   ],
@@ -54,9 +62,9 @@ class _LocationScreenState extends State<LocationScreen> {
               Padding(
                 padding: EdgeInsets.only(right: 15.0),
                 child: Text(
-                  "It's time in San Francisco!",
+                  "It's 🍦 time in San Francisco!",
                   textAlign: TextAlign.right,
-                  style: kMassageTextStyle,
+                  style: kMessageTextStyle,
                 ),
               ),
             ],
