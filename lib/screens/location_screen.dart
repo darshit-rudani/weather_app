@@ -28,6 +28,7 @@ class _LocationScreenState extends State<LocationScreen> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
+                  // ignore: deprecated_member_use
                   FlatButton(
                     onPressed: () {},
                     child: Icon(
@@ -35,6 +36,7 @@ class _LocationScreenState extends State<LocationScreen> {
                       size: 50.0,
                     ),
                   ),
+                  // ignore: deprecated_member_use
                   FlatButton(
                     onPressed: () {},
                     child: Icon(
@@ -74,3 +76,7 @@ class _LocationScreenState extends State<LocationScreen> {
     );
   }
 }
+
+//double temperature = decodeData['main']['temp'];
+//int condition = decodeData['weather'][0]['id'];
+//String cityName = decodeData['name'];

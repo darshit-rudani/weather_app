@@ -23,6 +23,7 @@ class _CityScreenState extends State<CityScreen> {
             children: <Widget>[
               Align(
                 alignment: Alignment.topLeft,
+                // ignore: deprecated_member_use
                 child: FlatButton(
                   onPressed: () {},
                   child: Icon(
@@ -35,6 +36,7 @@ class _CityScreenState extends State<CityScreen> {
                 padding: EdgeInsets.all(20.0),
                 child: null,
               ),
+              // ignore: deprecated_member_use
               FlatButton(
                 onPressed: () {},
                 child: Text(
