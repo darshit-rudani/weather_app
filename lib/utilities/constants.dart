@@ -9,6 +9,7 @@ const kMessageTextStyle = TextStyle(
   fontFamily: 'Spartan MB',
   fontSize: 60.0,
   color: Colors.white,
+  fontWeight: FontWeight.bold,
 );
 
 const kButtonTextStyle = TextStyle(
