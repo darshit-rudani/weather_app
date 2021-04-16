@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:weather/screens/city_screen.dart';
 import 'package:weather/services/weathers.dart';
 import 'package:weather/utilities/constants.dart';
 
@@ -25,20 +26,28 @@ class _LocationScreenState extends State<LocationScreen> {
   }
 
   void updateUI(dynamic weatherData) {
+    setState(
+      () {
+        if (weatherData == null) {
+          temperature = 0;
+          weatherIcon = 'Error';
+          message = 'Unable to get weather data';
+          cityName = '';
+          return;
+        }
+        double temp = weatherData['main']['temp'];
+        temp = temp - 273.75;
+        temperature = temp.toInt();
+        var condition = weatherData['weather'][0]['id'];
+        weatherIcon = weather.getWeatherIcon(condition);
+        message = weather.getMassage(temperature);
+        cityName = weatherData['name'];
 
-    setState(() {
-      double temp = weatherData['main']['temp'];
-      temp = temp - 273.75;
-      temperature = temp.toInt();
-      var condition = weatherData['weather'][0]['id'];
-      weatherIcon = weather.getWeatherIcon(condition);
-      message = weather.getMassage(temperature);
-      cityName = weatherData['name'];
-
-      print(temperature);
-      print(condition);
-      print(cityName);
-    });
+        print(temperature);
+        print(condition);
+        print(cityName);
+      },
+    );
   }
 
   @override
@@ -75,7 +84,12 @@ class _LocationScreenState extends State<LocationScreen> {
                   ),
                   // ignore: deprecated_member_use
                   FlatButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) {
+                        return CityScreen();
+                      }));
+                    },
                     child: Icon(
                       Icons.location_city,
                       size: 50.0,

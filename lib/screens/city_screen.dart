@@ -13,7 +13,7 @@ class _CityScreenState extends State<CityScreen> {
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('images/city_background.jpg'),
+            image: AssetImage('images/l4.jpg'),
             fit: BoxFit.cover,
           ),
         ),
@@ -33,15 +33,24 @@ class _CityScreenState extends State<CityScreen> {
                 ),
               ),
               Container(
-                padding: EdgeInsets.all(20.0),
-                child: null,
+                padding: EdgeInsets.fromLTRB(3, 30, 20, 0),
+                child: TextField(
+                  style: kTextFieldStyle,
+                  decoration: kTextFieldInputDecoration,
+                  onChanged: (value){
+                    print(value);
+                  },
+                ),
               ),
               // ignore: deprecated_member_use
-              FlatButton(
-                onPressed: () {},
-                child: Text(
-                  'Get Weather',
-                  style: kButtonTextStyle,
+              Container(
+                margin: EdgeInsets.only(top: 30),
+                child: FlatButton(
+                  onPressed: () {},
+                  child: Text(
+                    'Get Weather',
+                    style: kButtonTextStyle,
+                  ),
                 ),
               ),
             ],
