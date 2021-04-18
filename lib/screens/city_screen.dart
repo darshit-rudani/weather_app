@@ -47,6 +47,9 @@ class _CityScreenState extends State<CityScreen> {
                 ),
               ),
               // ignore: deprecated_member_use
+              SizedBox(
+                height: 30,
+              ),
               FlatButton(
                 onPressed: () {
                   Navigator.pop(context, cityName);

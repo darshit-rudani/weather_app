@@ -35,7 +35,8 @@ class _LocationScreenState extends State<LocationScreen> {
           cityName = '';
           return;
         }
-        int temp = weatherData['main']['temp'];
+        double temp = weatherData['main']['temp'];
+        temp = temp - 273;
         temperature = temp.toInt();
         var condition = weatherData['weather'][0]['id'];
         weatherIcon = weather.getWeatherIcon(condition);
