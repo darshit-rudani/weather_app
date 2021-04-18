@@ -121,13 +121,10 @@ class _LocationScreenState extends State<LocationScreen> {
                   ],
                 ),
               ),
-              Padding(
-                padding: EdgeInsets.only(right: 15.0),
-                child: Text(
-                  '$message in $cityName',
-                  textAlign: TextAlign.center,
-                  style: kMessageTextStyle,
-                ),
+              Text(
+                '$message in $cityName',
+                textAlign: TextAlign.center,
+                style: kMessageTextStyle,
               ),
             ],
           ),
