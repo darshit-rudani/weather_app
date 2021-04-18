@@ -35,8 +35,7 @@ class _LocationScreenState extends State<LocationScreen> {
           cityName = '';
           return;
         }
-        double temp = weatherData['main']['temp'];
-        temp = temp - 273.75;
+        int temp = weatherData['main']['temp'];
         temperature = temp.toInt();
         var condition = weatherData['weather'][0]['id'];
         weatherIcon = weather.getWeatherIcon(condition);
@@ -84,11 +83,20 @@ class _LocationScreenState extends State<LocationScreen> {
                   ),
                   // ignore: deprecated_member_use
                   FlatButton(
-                    onPressed: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) {
-                        return CityScreen();
-                      }));
+                    onPressed: () async {
+                      var typename = await Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) {
+                            return CityScreen();
+                          },
+                        ),
+                      );
+                      if (typename != null) {
+                        var weatherData =
+                            await weather.getCityWeather(typename);
+                        updateUI(weatherData);
+                      }
                     },
                     child: Icon(
                       Icons.location_city,
